@@ -1,0 +1,1 @@
+json.array! @hacker_news_stories, partial: 'hacker_news_stories/hacker_news_story', as: :hacker_news_story

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>By:</strong>
+  <%= @hacker_news_story.by %>
+</p>
+
+<p>
+  <strong>Story:</strong>
+  <%= @hacker_news_story.story_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @hacker_news_story.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @hacker_news_story.url %>
+</p>
+
+<%= link_to 'Edit', edit_hacker_news_story_path(@hacker_news_story) %> |
+<%= link_to 'Back', hacker_news_stories_path %>

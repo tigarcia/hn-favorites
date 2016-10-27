@@ -1,0 +1,1 @@
+json.partial! "hacker_news_stories/hacker_news_story", hacker_news_story: @hacker_news_story

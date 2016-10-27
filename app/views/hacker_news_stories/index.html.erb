@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hacker News Stories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>By</th>
+      <th>Story</th>
+      <th>Title</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hacker_news_stories.each do |hacker_news_story| %>
+      <tr>
+        <td><%= hacker_news_story.by %></td>
+        <td><%= hacker_news_story.story_id %></td>
+        <td><%= link_to hacker_news_story.title, hacker_news_story.url %></td>
+        <td><%= link_to 'Show', hacker_news_story %></td>
+        <td><%= link_to 'Edit', edit_hacker_news_story_path(hacker_news_story) %></td>
+        <td><%= link_to 'Destroy', hacker_news_story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hacker News Story', new_hacker_news_story_path %>
