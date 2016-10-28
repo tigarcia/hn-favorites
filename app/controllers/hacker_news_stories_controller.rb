@@ -4,7 +4,7 @@ class HackerNewsStoriesController < ApplicationController
   # GET /hacker_news_stories
   # GET /hacker_news_stories.json
   def index
-    @hacker_news_stories = HackerNewsStory.all
+    @hacker_news_stories = current_user.hacker_news_stories
   end
 
   # GET /hacker_news_stories/1
@@ -14,7 +14,7 @@ class HackerNewsStoriesController < ApplicationController
 
   # GET /hacker_news_stories/new
   def new
-    @hacker_news_story = HackerNewsStory.new
+    @hacker_news_story = current_user.hacker_news_stories.new
   end
 
   # GET /hacker_news_stories/1/edit
@@ -24,7 +24,7 @@ class HackerNewsStoriesController < ApplicationController
   # POST /hacker_news_stories
   # POST /hacker_news_stories.json
   def create
-    @hacker_news_story = HackerNewsStory.new(hacker_news_story_params)
+    @hacker_news_story = current_user.hacker_news_stories.new(hacker_news_story_params)
 
     respond_to do |format|
       if @hacker_news_story.save
@@ -64,7 +64,7 @@ class HackerNewsStoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hacker_news_story
-      @hacker_news_story = HackerNewsStory.find(params[:id])
+      @hacker_news_story = current_user.hacker_news_stories.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
