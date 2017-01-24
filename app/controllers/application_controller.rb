@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_request
 
-  def authenticate
-    command = AuthenticateUser.new(params[:email], params[:password]).call
+  def authenticate(email, password)
+    command = AuthenticateUser.new(email, password).call
     if command.success?
       render json: {auth_token: command.result}
     else
